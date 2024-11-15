@@ -1,0 +1,6 @@
+resources:
+- ../../base
+nameSuffix: "-green"
+images:
+- name: docker.io/nlopez/media-toolbox
+  newTag: 15e6cd4
