@@ -5,8 +5,3 @@ namespace: media
 resources:
   - deployment.yaml
   - sa.yaml
-
-configMapGenerator:
-  - name: toolbox-config
-    files:
-      - yt-dlp.conf

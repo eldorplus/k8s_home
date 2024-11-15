@@ -3,4 +3,8 @@ resources:
 nameSuffix: "-green"
 images:
 - name: docker.io/nlopez/media-toolbox
-  newTag: 15e6cd4
+  newTag: e6b7463
+configMapGenerator:
+  - name: toolbox-config
+    files:
+      - yt-dlp.conf

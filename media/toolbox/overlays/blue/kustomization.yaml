@@ -1,3 +1,7 @@
 resources:
 - ../../base
 nameSuffix: ""
+configMapGenerator:
+  - name: toolbox-config
+    files:
+      - yt-dlp.conf
