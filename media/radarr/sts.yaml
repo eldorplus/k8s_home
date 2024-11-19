@@ -35,7 +35,7 @@ spec:
       containers:
         - name: radarr
           # IMAGE=ghcr.io/linuxserver/radarr; echo -en "$IMAGE:$(crane ls $IMAGE | sort -V | grep '^version-5' | tail -n1)" | pbcopy
-          image: ghcr.io/linuxserver/radarr:version-5.8.3.8933
+          image: ghcr.io/linuxserver/radarr:version-5.15.1.9463
 
           resources:
             requests:
