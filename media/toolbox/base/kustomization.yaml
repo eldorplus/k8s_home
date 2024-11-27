@@ -1,7 +1,20 @@
----
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
 namespace: media
 resources:
-  - deployment.yaml
-  - sa.yaml
+- deployment.yaml
+configMapGenerator:
+- name: toolbox-config
+  files:
+    - yt-dlp.conf
+replacements:
+- source:
+    kind: Deployment
+    name: toolbox
+    fieldPath: metadata.name
+  targets:
+  - select:
+      kind: ServiceAccount
+    fieldPaths:
+    - metadata.name
+    options:
+      delimiter: "-"
+      index: 1

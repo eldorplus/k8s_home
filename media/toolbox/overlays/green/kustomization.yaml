@@ -5,6 +5,7 @@ images:
 - name: docker.io/nlopez/media-toolbox
   newTag: c6cbc8d
 configMapGenerator:
-  - name: toolbox-config
-    files:
-      - yt-dlp.conf
+- name: toolbox-config
+  behavior: replace
+  files:
+    - yt-dlp.conf

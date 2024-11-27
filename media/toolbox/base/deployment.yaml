@@ -24,8 +24,6 @@ spec:
         runAsUser: 1001
         runAsGroup: 1001
         fsGroup: 1001
-      # nodeName: knode2
-      serviceAccountName: toolbox
       dnsConfig:
         options:
           - name: ndots
@@ -47,7 +45,7 @@ spec:
           emptyDir: {}
       containers:
         - name: toolbox
-          image: docker.io/nlopez/media-toolbox:116a215
+          image: docker.io/nlopez/media-toolbox:d34dc0de
           imagePullPolicy: Always
           resources:
             requests: {}
