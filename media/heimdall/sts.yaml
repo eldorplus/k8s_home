@@ -32,7 +32,7 @@ spec:
       containers:
         - name: heimdall
           # IMAGE=ghcr.io/linuxserver/heimdall; echo -en "$IMAGE:$(crane ls $IMAGE | sort -V | tail -n1)" | pbcopy
-          image: ghcr.io/linuxserver/heimdall:version-v2.6.1
+image: ghcr.io/linuxserver/heimdall:version-v2.6.3
           resources:
             requests:
               cpu: "1000m"
