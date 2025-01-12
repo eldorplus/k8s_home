@@ -35,7 +35,8 @@ spec:
       containers:
         - name: radarr
           # IMAGE=ghcr.io/linuxserver/radarr; echo -en "$IMAGE:$(crane ls $IMAGE | sort -V | grep '^version-5' | tail -n1)" | pbcopy
-          image: ghcr.io/linuxserver/radarr:version-5.15.1.9463
+          # IMAGE=ghcr.io/linuxserver/radarr; skopeo --override-os linux list-tags "docker://${IMAGE}" | jq -r '.Tags[]' | grep '^version-5' | sort -V | tail -n1
+          image: ghcr.io/linuxserver/radarr:version-5.17.2.9580
 
           resources:
             requests:

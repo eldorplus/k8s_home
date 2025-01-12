@@ -30,6 +30,7 @@ spec:
       containers:
         - name: overseerr
           # IMAGE=ghcr.io/linuxserver/overseerr; echo -en "$IMAGE:$(crane ls $IMAGE | sort -V | tail -n1)" | pbcopy
+          # IMAGE=ghcr.io/linuxserver/overseerr; skopeo --override-os linux list-tags "docker://${IMAGE}" | jq -r '.Tags[]' | sort -V | tail -n1
           image: ghcr.io/linuxserver/overseerr:version-v1.33.2
           resources:
             requests:
