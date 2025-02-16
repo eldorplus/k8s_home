@@ -3,9 +3,9 @@ resources:
 nameSuffix: "-blue"
 images:
 - name: docker.io/nlopez/media-toolbox
-  newTag: d9b68d5
+  newTag: 31c90c4
 configMapGenerator:
 - name: toolbox-config
   behavior: replace
   files:
-    - yt-dlp.conf
+  - yt-dlp.conf
