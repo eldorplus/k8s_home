@@ -80,5 +80,9 @@ spec:
               value: "America/New_York"
             - name: HISTTIMEFORMAT
               value: "%Y-%m-%dT%H:%M:%S%z "
+            - name: LANG
+              value: "en_US.UTF-8"
+            - name: LC_ALL
+              value: "en_US.UTF-8"
         - name: bgutil-ytdlp-pot-provider
           image: brainicism/bgutil-ytdlp-pot-provider
