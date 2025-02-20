@@ -3,7 +3,7 @@ resources:
 nameSuffix: "-green"
 images:
 - name: docker.io/nlopez/media-toolbox
-  newTag: 7396d29
+  newTag: "4033ee1"
 configMapGenerator:
 - name: toolbox-config
   behavior: replace
