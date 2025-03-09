@@ -3,9 +3,11 @@ resources:
 nameSuffix: "-green"
 images:
 - name: docker.io/nlopez/media-toolbox
-  newTag: "4033ee1"
+  newTag: "948e2f1"
+- name: brainicism/bgutil-ytdlp-pot-provider
+  newTag: "0.7.4"
 configMapGenerator:
 - name: toolbox-config
   behavior: replace
   files:
-    - yt-dlp.conf
+  - yt-dlp.conf
