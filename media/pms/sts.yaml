@@ -50,7 +50,7 @@ spec:
         name: pms
         # IMAGE=ghcr.io/linuxserver/plex; echo -en "$IMAGE:$(crane ls $IMAGE | sort -V | tail -n1)" | pbcopy
         # IMAGE=ghcr.io/linuxserver/plex; skopeo --override-os linux list-tags "docker://${IMAGE}" | jq -r '.Tags[]' | sort -V | tail -n1
-        image: ghcr.io/linuxserver/plex:version-1.41.4.9463-630c9f557
+        image: ghcr.io/linuxserver/plex:version-1.41.5.9522-a96edc606
 
         # image: alpine
         # command: ["sleep"] # args: ["infinity"]
