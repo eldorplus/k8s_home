@@ -3,7 +3,7 @@ resources:
 nameSuffix: "-blue"
 images:
 - name: docker.io/nlopez/media-toolbox
-  newTag: "d6ed04e"
+  newTag: "4b687c5"
 - name: brainicism/bgutil-ytdlp-pot-provider
   newTag: "0.7.4"
 configMapGenerator:
