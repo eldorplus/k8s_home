@@ -21,7 +21,8 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: spec.nodeName
-        image: docker.io/intel/intel-gpu-plugin:0.29.0
+        # IMAGE=docker.io/intel/intel-gpu-plugin; skopeo --override-os linux list-tags "docker://${IMAGE}" | jq -r '.Tags[]' | sort -V | grep '^[0-9]' | tail -n1
+        image: docker.io/intel/intel-gpu-plugin:0.32.0
         imagePullPolicy: IfNotPresent
         securityContext:
           readOnlyRootFilesystem: true
