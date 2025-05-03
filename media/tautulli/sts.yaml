@@ -33,9 +33,8 @@ spec:
           claimName: logs
       containers:
       - name: tautulli
-        # IMAGE=ghcr.io/linuxserver/tautulli; echo -en "$IMAGE:$(crane ls $IMAGE | sort -V | tail -n1)" | pbcopy
         # IMAGE=ghcr.io/linuxserver/tautulli; skopeo --override-os linux list-tags "docker://${IMAGE}" | jq -r '.Tags[]' | sort -V | tail -n1
-        image: ghcr.io/linuxserver/tautulli:version-v2.15.1
+        image: ghcr.io/linuxserver/tautulli:version-v2.15.2
         # image: alpine
         # command: ["sleep"]
         # args: ["infinity"]
