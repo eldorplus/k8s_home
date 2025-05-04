@@ -82,18 +82,15 @@ spec:
           #   periodSeconds: 10
           #   failureThreshold: 3
 
-          # startupProbe:
-          #   httpGet:
-          #     port: http
-          #     path: /
-          #   periodSeconds: 10
-          #   failureThreshold: 30
+          startupProbe:
+            httpGet:
+              port: http
+              path: /
+            periodSeconds: 10
+            failureThreshold: 30
 
       volumes:
         - name: radarr
-          persistentVolumeClaim:
-            claimName: radarr-iscsi-pvc
-        - name: radarr-ssd
           persistentVolumeClaim:
             claimName: radarr-ssd-iscsi-pvc
         - name: scratch
