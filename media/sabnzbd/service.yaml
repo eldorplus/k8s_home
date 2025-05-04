@@ -11,7 +11,7 @@ metadata:
     tailscale.com/expose: "true"
 spec:
   type: ExternalName
-  externalName: 192.168.222.10.sslip.io
+  externalName: 192.168.222.149.sslip.io
   ports:
     - name: http
       port: 80
