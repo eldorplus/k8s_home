@@ -82,12 +82,12 @@ spec:
           #   periodSeconds: 10
           #   failureThreshold: 3
 
-          startupProbe:
-            httpGet:
-              port: http
-              path: /
-            periodSeconds: 10
-            failureThreshold: 30
+          # startupProbe:
+          #   httpGet:
+          #     port: http
+          #     path: /
+          #   periodSeconds: 10
+          #   failureThreshold: 30
 
       volumes:
         - name: radarr
