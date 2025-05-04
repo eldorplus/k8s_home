@@ -93,7 +93,7 @@ spec:
         - name: radarr
           persistentVolumeClaim:
             claimName: radarr-iscsi-pvc
-        - name: radarr
+        - name: radarr-ssd
           persistentVolumeClaim:
             claimName: radarr-ssd-iscsi-pvc
         - name: scratch
