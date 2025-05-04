@@ -35,7 +35,10 @@ spec:
       containers:
         - name: radarr
           # IMAGE=ghcr.io/linuxserver/radarr; skopeo --override-os linux list-tags "docker://${IMAGE}" | jq -r '.Tags[]' | grep '^version-5' | sort -V | tail -n1
-          image: ghcr.io/linuxserver/radarr:version-5.22.4.9896
+          # image: ghcr.io/linuxserver/radarr:version-5.22.4.9896
+          image: alpine
+          command: ["sleep"]
+          args: ["infinity"]
 
           resources:
             requests:
@@ -49,6 +52,9 @@ spec:
             - name: radarr
               subPath: config
               mountPath: /config
+            - name: radarr-ssd
+              subPath: config
+              mountPath: /config-ssd
             - name: media-nfs
               mountPath: /media
             - name: scratch
