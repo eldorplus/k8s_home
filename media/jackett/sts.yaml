@@ -25,9 +25,10 @@ spec:
           image: ghcr.io/linuxserver/jackett:version-v0.22.1857
           resources:
             requests:
-              cpu: "250m"
+              cpu: "1"
               memory: "256Mi"
             limits:
+              cpu: "1"
               memory: "256Mi"
           env:
             - name: PUID

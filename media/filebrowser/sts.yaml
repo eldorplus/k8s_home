@@ -44,6 +44,7 @@ image: docker.io/filebrowser/filebrowser:v2.31.2-s6
               cpu: "2"
               memory: "4Gi"
             limits:
+              cpu: "2"
               memory: "4Gi"
           command: ["filebrowser"]
           args:
