@@ -16,6 +16,7 @@ spec:
         app: radarr
         rclone-mounts: "true"
     spec:
+      nodeName: knode1
       dnsConfig:
         options:
           - name: ndots
@@ -89,14 +90,10 @@ spec:
       volumes:
         - name: radarr
           persistentVolumeClaim:
-            claimName: radarr-ssd-iscsi-pvc
+            claimName: radarr-pv-claim
         - name: scratch
           persistentVolumeClaim:
             claimName: scratch
-        - name: media-rclone
-          hostPath:
-            path: /mnt/media-rclone
-            type: Directory
         - name: media-nfs
           persistentVolumeClaim:
             claimName: media

@@ -36,10 +36,10 @@ spec:
           image: ghcr.io/linuxserver/heimdall:version-v2.6.3
           resources:
             requests:
-              cpu: "1"
+              cpu: "500m"
               memory: "512Mi"
             limits:
-              cpu: "1"
+              cpu: "500m"
               memory: "512Mi"
           volumeMounts:
             - name: config
