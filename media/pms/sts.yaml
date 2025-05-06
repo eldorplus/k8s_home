@@ -61,8 +61,6 @@ spec:
           value: "true"
         - name: DB_REPAIR_REV
           value: "e2a3d1d04b0b16e5e53931baa489fe76ac3b4129"
-        - name: DO_DISK_CLEANUP
-          value: "true"
         - name: CHANGE_CONFIG_DIR_OWNERSHIP
           value: "false"
         - name: PLEX_UID
@@ -114,16 +112,9 @@ spec:
           medium: Memory
       initContainers:
       - !!merge <<: *pms
-        name: plex-disk-cleanup
-        livenessProbe: null
-        command:
-        - sh
-        - -c
-        - '[ "${DO_DISK_CLEANUP:-false}" = "false" ] && exit 0 || (find /config/Library/Application\ Support/Plex\ Media\ Server/Cache/PhotoTranscoder -name "*.jpg" -type f -mtime +5 -delete)'
-      - !!merge <<: *pms
         name: plex-db-repair
         livenessProbe: null
         command:
         - sh
         - -c
-        - '[ "${DO_DB_REPAIR:-false}" = "false" ] && exit 0 || (curl https://raw.githubusercontent.com/ChuckPa/PlexDBRepair/${DB_REPAIR_REV:-master}/DBRepair.sh | bash -x -s - auto exit)'
+        - '[ "${DO_DB_REPAIR:-false}" = "false" ] && exit 0 || (curl https://raw.githubusercontent.com/ChuckPa/PlexDBRepair/${DB_REPAIR_REV:-master}/DBRepair.sh | bash -x -s - auto prune exit)'
