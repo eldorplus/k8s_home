@@ -26,10 +26,7 @@ spec:
           value: "1"
 
       volumes:
-        - name: tautulli-iscsi-ssd
-          persistentVolumeClaim:
-            claimName: tautulli-iscsi-pvc-ssd
-        - name: tautulli-rook
+        - name: tautulli
           persistentVolumeClaim:
             claimName: tautulli-pv-claim
         - name: logs
@@ -53,10 +50,8 @@ spec:
             memory: "512Mi"
 
         volumeMounts:
-        - name: tautulli-iscsi-ssd
+        - name: tautulli
           mountPath: /config
-        - name: tautulli-rook
-          mountPath: /config-rook
         - name: logs
           mountPath: /logs-pms
           subPath: pms

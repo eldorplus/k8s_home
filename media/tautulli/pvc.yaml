@@ -2,19 +2,6 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: tautulli-iscsi-pvc-ssd
-  namespace: media
-spec:
-  volumeName: tautulli-iscsi-pv-ssd
-  resources:
-    requests:
-      storage: 10G
-  accessModes:
-    - ReadWriteOnce
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
   name: tautulli-pv-claim
   labels:
     app: tautulli
