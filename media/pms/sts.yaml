@@ -59,6 +59,8 @@ spec:
         env:
         - name: DO_DB_REPAIR
           value: "true"
+        - name: DB_REPAIR_REV
+          value: "e2a3d1d04b0b16e5e53931baa489fe76ac3b4129"
         - name: DO_DISK_CLEANUP
           value: "true"
         - name: CHANGE_CONFIG_DIR_OWNERSHIP
@@ -124,4 +126,4 @@ spec:
         command:
         - sh
         - -c
-        - '[ "${DO_DB_REPAIR:-false}" = "false" ] && exit 0 || (curl https://raw.githubusercontent.com/ChuckPa/PlexDBRepair/d0084c96fb0b5d1ff1da4111370e40bf5205951f/DBRepair.sh | bash -x -s - auto exit)'
+        - '[ "${DO_DB_REPAIR:-false}" = "false" ] && exit 0 || (curl https://raw.githubusercontent.com/ChuckPa/PlexDBRepair/${DB_REPAIR_REV:-master}/DBRepair.sh | bash -x -s - auto exit)'
