@@ -82,6 +82,8 @@ spec:
         volumeMounts:
         - name: pms-iscsi
           mountPath: /config
+        - name: pms-rook
+          mountPath: /config-rook
         - name: tmp
           mountPath: /tmp
         - name: media
