@@ -115,18 +115,18 @@ spec:
       - name: tmp
         emptyDir:
           medium: Memory
-      initContainers:
-      - !!merge <<: *pms
-        name: plex-disk-cleanup
-        livenessProbe: null
-        command:
-        - sh
-        - -c
-        - '[ "${DO_DISK_CLEANUP:-false}" = "false" ] && exit 0 || (find /config/Library/Application\ Support/Plex\ Media\ Server/Cache/PhotoTranscoder -name "*.jpg" -type f -mtime +5 -delete)'
-      - !!merge <<: *pms
-        name: plex-db-repair
-        livenessProbe: null
-        command:
-        - sh
-        - -c
-        - '[ "${DO_DB_REPAIR:-false}" = "false" ] && exit 0 || (curl https://raw.githubusercontent.com/ChuckPa/PlexDBRepair/d0084c96fb0b5d1ff1da4111370e40bf5205951f/DBRepair.sh | bash -x -s - auto exit)'
+      # initContainers:
+      # - !!merge <<: *pms
+      #   name: plex-disk-cleanup
+      #   livenessProbe: null
+      #   command:
+      #   - sh
+      #   - -c
+      #   - '[ "${DO_DISK_CLEANUP:-false}" = "false" ] && exit 0 || (find /config/Library/Application\ Support/Plex\ Media\ Server/Cache/PhotoTranscoder -name "*.jpg" -type f -mtime +5 -delete)'
+      # - !!merge <<: *pms
+      #   name: plex-db-repair
+      #   livenessProbe: null
+      #   command:
+      #   - sh
+      #   - -c
+      #   - '[ "${DO_DB_REPAIR:-false}" = "false" ] && exit 0 || (curl https://raw.githubusercontent.com/ChuckPa/PlexDBRepair/d0084c96fb0b5d1ff1da4111370e40bf5205951f/DBRepair.sh | bash -x -s - auto exit)'
