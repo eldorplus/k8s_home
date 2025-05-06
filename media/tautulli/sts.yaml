@@ -24,13 +24,7 @@ spec:
         options:
         - name: ndots
           value: "1"
-      volumes:
-      - name: tautulli-iscsi-ssd
-        persistentVolumeClaim:
-          claimName: tautulli-iscsi-pvc-ssd
-      - name: logs
-        persistentVolumeClaim:
-          claimName: logs
+
       containers:
       - name: tautulli
         # IMAGE=ghcr.io/linuxserver/tautulli; skopeo --override-os linux list-tags "docker://${IMAGE}" | jq -r '.Tags[]' | sort -V | tail -n1
@@ -47,9 +41,22 @@ spec:
             cpu: "500m"
             memory: "512Mi"
 
+        volumes:
+        - name: tautulli-iscsi-ssd
+          persistentVolumeClaim:
+            claimName: tautulli-iscsi-pvc-ssd
+        - name: tautulli-rook
+          persistentVolumeClaim:
+            claimName: tautulli-pv-claim
+        - name: logs
+          persistentVolumeClaim:
+            claimName: logs
+
         volumeMounts:
         - name: tautulli-iscsi-ssd
           mountPath: /config
+        - name: tautulli-rook
+          mountPath: /config-rook
         - name: logs
           mountPath: /logs-pms
           subPath: pms
