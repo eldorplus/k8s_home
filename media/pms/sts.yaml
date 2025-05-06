@@ -48,7 +48,6 @@ spec:
       containers:
       - &pms
         name: pms
-        # IMAGE=ghcr.io/linuxserver/plex; echo -en "$IMAGE:$(crane ls $IMAGE | sort -V | tail -n1)" | pbcopy
         # IMAGE=ghcr.io/linuxserver/plex; skopeo --override-os linux list-tags "docker://${IMAGE}" | jq -r '.Tags[]' | sort -V | tail -n1
         # image: ghcr.io/linuxserver/plex:version-1.41.6.9685-d301f511a
 
@@ -85,7 +84,7 @@ spec:
           mountPath: /config
         - name: tmp
           mountPath: /tmp
-        - name: media-nfs
+        - name: media
           mountPath: /media
           readOnly: false
         - name: logs
@@ -103,14 +102,13 @@ spec:
       - name: pms-iscsi
         persistentVolumeClaim:
           claimName: pms-iscsi-pvc
+      - name: pms-rook
+        persistentVolumeClaim:
+          claimName: pms-pv-claim
       - name: logs
         persistentVolumeClaim:
           claimName: logs
-      - name: media-rclone
-        hostPath:
-          path: /mnt/media-rclone
-          type: Directory
-      - name: media-nfs
+      - name: media
         persistentVolumeClaim:
           claimName: media
       - name: tmp
