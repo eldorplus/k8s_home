@@ -87,7 +87,7 @@ spec:
             - name: sonarr
               subPath: config
               mountPath: /config
-            - name: media-nfs
+            - name: media
               mountPath: /media
             - name: scratch
               mountPath: /downloads
@@ -95,14 +95,10 @@ spec:
       volumes:
         - name: sonarr
           persistentVolumeClaim:
-            claimName: sonarr-iscsi-pvc-ssd
+            claimName: sonarr-pv-claim
         - name: scratch
           persistentVolumeClaim:
             claimName: scratch
-        - name: media-rclone
-          hostPath:
-            path: /mnt/media-rclone
-            type: Directory
-        - name: media-nfs
+        - name: media
           persistentVolumeClaim:
             claimName: media
