@@ -80,10 +80,8 @@ spec:
         - name: https
           containerPort: 32400
         volumeMounts:
-        - name: pms-iscsi
+        - name: pms
           mountPath: /config
-        - name: pms-rook
-          mountPath: /config-rook
         - name: tmp
           mountPath: /tmp
         - name: media
@@ -101,10 +99,7 @@ spec:
           #   periodSeconds: 10
           #   failureThreshold: 3
       volumes:
-      - name: pms-iscsi
-        persistentVolumeClaim:
-          claimName: pms-iscsi-pvc
-      - name: pms-rook
+      - name: pms
         persistentVolumeClaim:
           claimName: pms-pv-claim
       - name: logs
