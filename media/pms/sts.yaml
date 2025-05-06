@@ -50,10 +50,10 @@ spec:
         name: pms
         # IMAGE=ghcr.io/linuxserver/plex; echo -en "$IMAGE:$(crane ls $IMAGE | sort -V | tail -n1)" | pbcopy
         # IMAGE=ghcr.io/linuxserver/plex; skopeo --override-os linux list-tags "docker://${IMAGE}" | jq -r '.Tags[]' | sort -V | tail -n1
-        image: ghcr.io/linuxserver/plex:version-1.41.6.9685-d301f511a
+        # image: ghcr.io/linuxserver/plex:version-1.41.6.9685-d301f511a
 
-        # image: alpine
-        # command: ["sleep"] # args: ["infinity"]
+        image: alpine
+        command: ["sleep"] # args: ["infinity"]
         resources:
           limits:
             gpu.intel.com/i915: "1"
