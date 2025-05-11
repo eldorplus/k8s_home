@@ -25,6 +25,8 @@ spec:
       containers:
       - name: toolbox
         securityContext: null
+        command: null
+        args: null
         env:
         - name: PUID
           value: "1001"
