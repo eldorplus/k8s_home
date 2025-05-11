@@ -1,13 +1,20 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
 resources:
 - ../../base
-nameSuffix: "-green"
+nameSuffix: -green
 images:
 - name: docker.io/nlopez/media-toolbox
-  newTag: "f3f3657"
+  newTag: f3f3657
 - name: brainicism/bgutil-ytdlp-pot-provider
-  newTag: "0.7.4"
+  newTag: 0.7.4
 configMapGenerator:
-- name: toolbox-config
-  behavior: replace
+- behavior: replace
   files:
   - yt-dlp.conf
+  name: toolbox-config
+labels:
+- includeSelectors: true
+  pairs:
+    app.kubernetes.io/instance: green
