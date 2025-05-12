@@ -7,12 +7,12 @@ metadata:
   labels:
     tailscale.com/proxy-class: "prod"
   annotations:
-    tailscale.com/hostname: "rough-pig"
+    tailscale.com/hostname: "solid-hound"
     tailscale.com/expose: "true"
 spec:
   type: ExternalName
-  externalName: 192.168.222.9.sslip.io
+  externalName: 192.168.222.149.sslip.io
   ports:
   - name: http
     port: 80
-    targetPort: 8080
+    targetPort: 30024
