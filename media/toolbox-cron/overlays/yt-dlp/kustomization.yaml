@@ -1,0 +1,20 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base
+nameSuffix: -yt-dlp
+images:
+- name: docker.io/nlopez/media-toolbox
+  newTag: "91861a1"
+- name: brainicism/bgutil-ytdlp-pot-provider
+  newTag: "0.8.3"
+labels:
+- includeSelectors: true
+  pairs:
+    app.kubernetes.io/instance: yt-dlp
+patches:
+- path: patch.yaml
+  target:
+    kind: CronJob
+    name: toolbox-cron

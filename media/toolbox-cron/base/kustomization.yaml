@@ -5,14 +5,14 @@ namespace: media
 resources:
 - cronjob.yaml
 configMapGenerator:
-- files:
+- name: toolbox-cron
+  files:
   - yt-dlp.conf
-  name: toolbox-config
 replacements:
 - source:
-    fieldPath: metadata.name
-    kind: CronJob
     name: toolbox-cron
+    kind: CronJob
+    fieldPath: metadata.name
   targets:
   - fieldPaths:
     - metadata.name
