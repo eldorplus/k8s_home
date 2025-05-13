@@ -40,7 +40,7 @@ spec:
           containers:
             - name: toolbox
               image: docker.io/nlopez/media-toolbox:latest
-              imagePullPolicy: Always
+              imagePullPolicy: IfNotPresent
               resources:
                 requests: {}
                 limits: {}
