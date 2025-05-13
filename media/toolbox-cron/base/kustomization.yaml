@@ -1,0 +1,23 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: media
+resources:
+- cronjob.yaml
+configMapGenerator:
+- files:
+  - yt-dlp.conf
+  name: toolbox-config
+replacements:
+- source:
+    fieldPath: metadata.name
+    kind: CronJob
+    name: toolbox-cron
+  targets:
+  - fieldPaths:
+    - metadata.name
+    options:
+      delimiter: '-'
+      index: 1
+    select:
+      kind: CronJob

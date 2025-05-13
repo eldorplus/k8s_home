@@ -51,16 +51,7 @@ spec:
                 limits: {}
               command: ["yt-dlp"]
               args:
-                - "--batch"
-                - "/media/youtube/cfg/batch_cron.txt"
-                - "--download-archive"
-                - "/media/youtube/cfg/download-archive/cron-video.txt"
-                - "--playlist-items"
-                - "::-1"
-                - "--wait-for-video"
-                - "60"
-                - "--color"
-                - "never"
+                - "--version"
               volumeMounts:
                 - name: media
                   mountPath: /media
