@@ -6,7 +6,7 @@ resources:
 nameSuffix: -yt-dlp
 images:
 - name: docker.io/nlopez/media-toolbox
-  newTag: "91861a1"
+  newTag: "7f1a970"
 - name: brainicism/bgutil-ytdlp-pot-provider
   newTag: "0.8.3"
 labels:

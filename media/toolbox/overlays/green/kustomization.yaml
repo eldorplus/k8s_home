@@ -6,7 +6,7 @@ resources:
 nameSuffix: -green
 images:
 - name: docker.io/nlopez/media-toolbox
-  newTag: "6d2b0c3"
+  newTag: "7f1a970"
 - name: brainicism/bgutil-ytdlp-pot-provider
   newTag: "0.8.3"
 configMapGenerator:
