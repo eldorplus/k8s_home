@@ -91,4 +91,4 @@ spec:
             - name: PGID
               value: "1001"
         - name: bgutil-ytdlp-pot-provider
-          image: brainicism/bgutil-ytdlp-pot-provider
+          image: brainicism/bgutil-ytdlp-pot-provider:0.8.5

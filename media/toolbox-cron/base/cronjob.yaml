@@ -59,3 +59,5 @@ spec:
               securityContext:
                 allowPrivilegeEscalation: false
               env: []
+            - name: bgutil-ytdlp-pot-provider
+              image: brainicism/bgutil-ytdlp-pot-provider:0.8.5
