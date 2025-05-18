@@ -3,7 +3,7 @@ ENVS := $(notdir $(ENVS))
 KUSTOMIZE_CMD = kustomize build
 KUBECTL_APPLY = | kubectl apply -f -
 
-preview-%:
+plan-%:
 	@if echo "$(ENVS)" | grep -wq "$*"; then \
 		$(KUSTOMIZE_CMD) overlays/$*; \
 	else \
