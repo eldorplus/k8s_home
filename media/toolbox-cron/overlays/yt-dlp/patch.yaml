@@ -17,9 +17,3 @@ spec:
             - --login
             - -x
             - /media/youtube/scripts/ytarchive-to-ytdlp.sh
-            livenessProbe:
-              exec:
-                command:
-                - /bin/sh
-                - -c
-                - 'if [ $(pgrep -cx yt-dlp) > 0 ]; then exit 0; else exit 1; fi'
