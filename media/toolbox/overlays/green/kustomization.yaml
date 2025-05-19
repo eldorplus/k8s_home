@@ -7,13 +7,6 @@ nameSuffix: -green
 images:
 - name: docker.io/nlopez/media-toolbox
   newTag: "7f1a970"
-# - name: brainicism/bgutil-ytdlp-pot-provider
-  # newTag: "0.8.5"
-configMapGenerator:
-- behavior: replace
-  files:
-  - yt-dlp.conf
-  name: toolbox-config
 labels:
 - includeSelectors: true
   pairs:

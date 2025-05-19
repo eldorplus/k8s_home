@@ -14,8 +14,9 @@ spec:
           - name: toolbox
             command: ["/bin/bash"]
             args:
-            - -xc
-            - "/media/youtube/scripts/ytarchive-to-ytdlp.sh; sleep 60"
+            - --login
+            - -x
+            - /media/youtube/scripts/ytarchive-to-ytdlp.sh
             livenessProbe:
               exec:
                 command:
