@@ -5,7 +5,7 @@ metadata:
   name: toolbox-cron
   namespace: media
 spec:
-  schedule: "* * * * *"
+  schedule: "*/10 * * * *"
   jobTemplate:
     spec:
       template:

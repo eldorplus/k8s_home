@@ -15,5 +15,5 @@ spec:
             command: ["/bin/bash"]
             args:
             - --login
-            # - -x
+            - -x
             - /media/youtube/scripts/ytarchive-to-ytdlp.sh
