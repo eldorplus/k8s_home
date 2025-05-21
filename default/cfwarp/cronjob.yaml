@@ -29,4 +29,5 @@ spec:
             - --socks5
             - cfwarp.default.svc.cluster.local:1080
             - https://cloudflare.com/cdn-cgi/trace
+            - https://icanhazip.com
           restartPolicy: Never
