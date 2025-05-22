@@ -2,11 +2,11 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: toolbox-cron-video
+  name: toolbox-cron
   namespace: media
 spec:
   suspend: false
-  schedule: "*/15 * * * *"
+  schedule: "* * * * *"
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -18,8 +18,6 @@ spec:
             runAsUser: 1001
             runAsGroup: 1001
             fsGroup: 1001
-          # nodeName: knode2
-          serviceAccountName: toolbox
           dnsConfig:
             options:
               - name: ndots
@@ -31,44 +29,36 @@ spec:
             - name: scratch
               persistentVolumeClaim:
                 claimName: scratch
-            - name: config
+            - name: yt-dlp-config
               configMap:
-                name: toolbox
-            - name: yt-dlp
-              configMap:
-                name: yt-dlp
+                name: toolbox-cron
                 items:
-                  - key: config
+                  - key: yt-dlp.conf
                     path: config
             - name: temp
               emptyDir: {}
+          initContainers:
+            - name: bgutil-ytdlp-pot-provider
+              image: brainicism/bgutil-ytdlp-pot-provider:0.8.5
+              restartPolicy: Always
+              imagePullPolicy: IfNotPresent
           containers:
             - name: toolbox
               image: docker.io/nlopez/media-toolbox:latest
-              imagePullPolicy: Always
+              imagePullPolicy: IfNotPresent
               resources:
                 requests: {}
                 limits: {}
               command: ["yt-dlp"]
               args:
-                - "--batch"
-                - "/media/youtube/cfg/batch_cron.txt"
-                - "--download-archive"
-                - "/media/youtube/cfg/download-archive/cron-video.txt"
-                - "--playlist-items"
-                - "::-1"
-                - "--wait-for-video"
-                - "60"
-                - "--color"
-                - "never"
+                - "--version"
               volumeMounts:
                 - name: media
                   mountPath: /media
                 - name: scratch
                   mountPath: /scratch
-                - name: yt-dlp
+                - name: yt-dlp-config
                   mountPath: /home/user/.config/yt-dlp/config
-                  subPath: config
                 - name: temp
                   mountPath: /yt-dlp-temp
               securityContext:
